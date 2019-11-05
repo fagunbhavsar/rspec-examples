@@ -1,5 +1,5 @@
 class Card
-  attr_reader :rank, :suit
+  attr_accessor :rank, :suit
 
 
   def initialize(rank, suit)
@@ -8,15 +8,22 @@ class Card
   end
 end
 
-RSpec.describe 'Card' do
-  it 'has a rank' do
-    card = Card.new('Ace', 'Spades')
+RSpec.describe Card do
+  let(:card) { Card.new('Ace', 'Spades') }
+
+  it 'has a rank and that rank can change' do
     expect(card.rank).to eq('Ace')
+    card.rank = 'Queen'
+    expect(card.rank).to eq('Queen')
   end
 
   it 'has a suit' do
-    card = Card.new('Ace', 'Spades')
     expect(card.suit).to eq('Spades')
   end
 
+  it 'For custom error message' do
+    card.suit = 'Giberish'
+    comparison = 'Spade'
+    expect(card.suit).to eq(comparison), "Hey, I expected #{comparison} but I have got #{card.suit} instead!"
+  end
 end
