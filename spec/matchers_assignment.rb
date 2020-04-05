@@ -11,6 +11,20 @@ RSpec.describe "Matchers assignment" do
     expect({}).to be_empty
     set = [10,20,30]
     expect(set).to all(be_even)
+    numbers = [0,1,2]
+    expect(numbers).to all(be >= 0)
+
+    values = ["hello", false, 0, -10, [], 99.99, nil, :hello, true, [1, 2, 3]]
+    t_values = []
+    f_values =[]
+
+    values.each do |val|
+      if expect(val).to be_truthy
+        t_values.push(val)
+      elsif expect(val).to be_falsy
+        f_values.push(val)
+      end
+    end
   end
 end
 
