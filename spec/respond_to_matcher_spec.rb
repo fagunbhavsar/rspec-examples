@@ -1,29 +1,29 @@
 class SuzukiSwift
-
   def steering
-    "Zoom"
+    'zoom'
   end
 
   def music
-    "Rock on"
+    'rock on'
   end
 
   def purchase(number)
-    "I just purchased it in #{number}, just awesome deal!"
+    "Awesome, I just purchased Swift for #{number}"
   end
 end
 
 RSpec.describe SuzukiSwift do
-  it 'confirms that an object can respond to a method' do
+  it 'confirm that each object can respond to a method' do
     expect(subject).to respond_to(:steering)
-    expect(subject).to respond_to(:steering, :music)
+    expect(subject).to respond_to(:music)
     expect(subject).to respond_to(:steering, :music, :purchase)
   end
 
-  it 'confirms that an object can respond to a method with an argument' do
-    expect(subject).to respond_to(:purchase).with(100)
-  end
+  #/it 'confirm that each object can respond to a method with arguments' do
+  #/expect(subject).to respond_to(:purchase).(100).arguments
+  #/end
 
-  it { is_expected.to respond_to(:purchase, :music) }
-  it { is_expected.to respond_to(:purchase).with(100) }
+  it { is_expected.to respond_to(:purchase, :steering) }
+  #it { is_expected.to respond_to(:purchase).with(100).arguments }
+
 end
