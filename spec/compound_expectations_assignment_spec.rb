@@ -8,10 +8,10 @@ end
 
 RSpec.describe 20 do
   it 'can validate whether it is an even number and twice to the number 10' do
-    expect(subject).to be_even
+    expect(subject).to be_even.and respond_to(:times)
   end
 
-  it { is_expected.to be_even }
+  it { is_expected.to be_even.and respond_to(:times) }
 end
 
 RSpec.describe [4, 8, 15, 16, 23, 42] do
